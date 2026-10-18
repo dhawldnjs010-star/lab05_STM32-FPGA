@@ -1,0 +1,3 @@
+VCD info: dumpfile wave.vcd opened for output.
+PASS piano: all 8 tones, silence, multiple keys, reset
+sim/piano_tb.sv:39: $finish called at 4796000 (1ps)

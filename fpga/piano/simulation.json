@@ -1,0 +1,9 @@
+{
+  "sources": [
+    "src/piano.v",
+    "src/note_select.v",
+    "src/square_tone.v"
+  ],
+  "testbench": "sim/piano_tb.sv",
+  "simulation_top": "tb"
+}

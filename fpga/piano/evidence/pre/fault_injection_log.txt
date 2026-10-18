@@ -1,0 +1,3 @@
+FATAL: sim/piano_tb.sv:22: note lookup
+       Time: 1477000  Scope: tb
+exit=1

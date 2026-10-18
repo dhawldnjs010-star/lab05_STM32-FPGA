@@ -9,6 +9,23 @@
 #include "main.h"
 /* 주변장치 변수의 extern 선언은 ece2_474.h에 있습니다. */
 
+/* STM32_1 과제 선택: 3 = 버튼·TIM6 인터럽트로 LED 간격 1->2->4->8->1초
+ *                    4 = 버튼으로 PB4 PWM 비율 25->50->75->25%
+ * 두 과제는 따로 확인하므로 값을 바꾼 뒤 Build하고 F5로 다시 다운로드한다. */
+#define STM32_1_TASK      3
+
+#define DEBOUNCE_MS       200U   /* 이 시간 안의 버튼 재호출은 무시 */
+
+#if STM32_1_TASK == 3
+/* 과제3: 두 ISR이 함께 쓰는 간격 번호. ISR에서 바뀌므로 volatile. */
+static volatile uint8_t interval_idx = 0U;          /* 0~3 -> 1, 2, 4, 8초 */
+static const uint8_t ticks_per_toggle[4] = {10U, 20U, 40U, 80U}; /* 100 ms 단위 */
+#elif STM32_1_TASK == 4
+/* 과제4: PWM 비율 번호와 비교값. 한 주기 1000칸(Period 999). */
+static volatile uint8_t duty_idx = 0U;              /* 0~2 -> 25, 50, 75% */
+static const uint32_t duty_compare[3] = {250U, 500U, 750U};
+#endif
+
 /* UART 인터럽트 수신 실습 때 필요한 버퍼의 주석을 해제합니다.
  * 파일 범위에 두면 수신 완료 함수에서도 같은 버퍼를 사용할 수 있습니다.
  */
@@ -24,11 +41,15 @@ void ece2_474_init(void)
      */
 
     /* TIM6: 100 ms마다 tim6_isr_p4()를 호출합니다. */
-    // HAL_TIM_Base_Start_IT(&htim6);
+#if STM32_1_TASK == 3
+    HAL_TIM_Base_Start_IT(&htim6);
+#endif
 
     /* TIM3: PB4에서 1 kHz PWM을 출력합니다. 비교값 500은 50%입니다. */
-    // HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_1);
-    // __HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_1, 500U);
+#if STM32_1_TASK == 4
+    HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_1);
+    __HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_1, duty_compare[0]);  /* 시작 25% */
+#endif
 
     /* UART2: PC에서 한 바이트를 받으면 uart2_isr_p6()를 호출합니다.
      * 위의 uart2_rx_ece2 버퍼도 주석을 해제해야 합니다.
@@ -51,7 +72,7 @@ void ece2_474_init(void)
 /* 메인 루프에서 반복해서 호출됩니다. */
 void polling_routine(void)
 {
-    /* 실습 코드 작성 */
+    /* STM32_1 과제3·4는 버튼과 타이머 인터럽트에서 처리하므로 비워 둔다. */
 }
 
 /* 1. 사용자 버튼 PC13을 눌렀을 때 호출됩니다. 우선순위: 7.
@@ -59,7 +80,21 @@ void polling_routine(void)
  */
 static void button_isr_p7(void)
 {
-    /* 실습 코드 작성: 버튼 이벤트를 기록하거나 LED 상태를 변경합니다. */
+    static uint32_t last_ms = 0U;
+    uint32_t now_ms = HAL_GetTick();
+
+    if ((now_ms - last_ms) < DEBOUNCE_MS)
+    {
+        return;                               /* 접점 떨림으로 본다 */
+    }
+    last_ms = now_ms;
+
+#if STM32_1_TASK == 3
+    interval_idx = (uint8_t)((interval_idx + 1U) % 4U);
+#elif STM32_1_TASK == 4
+    duty_idx = (uint8_t)((duty_idx + 1U) % 3U);
+    __HAL_TIM_SET_COMPARE(&htim3, TIM_CHANNEL_1, duty_compare[duty_idx]);
+#endif
 }
 
 /* 2. TIM6를 인터럽트 방식으로 시작하면 100 ms마다 호출됩니다. 우선순위: 4.
@@ -67,7 +102,15 @@ static void button_isr_p7(void)
  */
 static void tim6_isr_p4(void)
 {
-    /* 실습 코드 작성: 횟수를 세거나 메인 루프에서 처리할 표시를 남깁니다. */
+#if STM32_1_TASK == 3
+    static uint8_t ticks = 0U;                /* 마지막 반전 뒤 100 ms 횟수 */
+
+    if (++ticks >= ticks_per_toggle[interval_idx])
+    {
+        ticks = 0U;
+        HAL_GPIO_TogglePin(LED_ece2_GPIO_Port, LED_ece2_Pin);
+    }
+#endif
 }
 
 /* 3. PC 통신 UART2의 요청한 수신이 완료되면 호출됩니다. 우선순위: 6.
@@ -92,13 +135,13 @@ static void uart3_isr_p5(void)
 /* PA0: 풀업 입력의 HIGH -> LOW 변화. 우선순위: 8. */
 static void gpio_in_pullup_isr_p8_ece2(void)
 {
-    /* 실습 코드 작성 */
+    /* STM32_1 과제3·4는 버튼과 타이머 인터럽트에서 처리하므로 비워 둔다. */
 }
 
 /* PA1: 풀다운 입력의 LOW -> HIGH 변화. 우선순위: 9. */
 static void gpio_in_pulldown_isr_p9_ece2(void)
 {
-    /* 실습 코드 작성 */
+    /* STM32_1 과제3·4는 버튼과 타이머 인터럽트에서 처리하므로 비워 둔다. */
 }
 
 /* 아래는 HAL 콜백과 실습 함수를 연결하는 코드입니다. */

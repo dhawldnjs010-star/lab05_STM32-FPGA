@@ -1,0 +1,10 @@
+{
+  "sources": [
+    "src/adc.v",
+    "src/adc_command.v",
+    "src/serial_frame16.v",
+    "src/adc_board.v"
+  ],
+  "testbench": "sim/adc_tb.sv",
+  "simulation_top": "tb"
+}

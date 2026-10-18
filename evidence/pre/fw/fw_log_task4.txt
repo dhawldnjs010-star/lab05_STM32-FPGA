@@ -1,0 +1,14 @@
+INIT tim6=0 pwm=1 ccr=250
+CCR t=1 ccr=250 duty=25%
+PRESS t=3000
+CCR t=3000 ccr=500 duty=50%
+PRESS t=3030
+PRESS t=3060
+PRESS t=10000
+CCR t=10000 ccr=750 duty=75%
+PRESS t=22000
+CCR t=22000 ccr=250 duty=25%
+PRESS t=30000
+CCR t=30000 ccr=500 duty=50%
+PRESS t=50000
+CCR t=50000 ccr=750 duty=75%
