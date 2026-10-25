@@ -16,3 +16,7 @@ fpga-lab-template(Glaysia/fpga-lab-template, 커밋 0b3318e466e9d77f7d3880df09c8
 
 핀 출처: 예전교안모음의 `Xilinx S7 Pin Map.pdf`, `HBE Combo II-DLD.pdf`, 조교 저장소 `lab3_piezo.xdc`.
 보드에서 확인할 가정: 신호등 비트 순서([3]=북, [2]=동, [1]=남, [0]=서)와 LED 극성, ADC의 `SPI_AD`가 칩 선택인지.
+
+## 실험 후 (2026-10-19)
+
+각 폴더의 `evidence/post/`에 XSim 파형, 실행 상태, 시연 영상·분석, `reports/post.md`에 실측 표가 있다. Vivado 프로젝트 생성은 `vivado_setup.tcl`.

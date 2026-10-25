@@ -1,0 +1,714 @@
+INFO: [Common 17-3922] A valid Vivado Design Suite BASIC license has been detected. Your current license is active and will expire on 13-sep-2027.
+#-----------------------------------------------------------
+# Vivado v2026.1 (64-bit)
+# SW Build 6511674 on Tue Jun 16 11:02:23 MDT 2026
+# IP Build 6504888 on Tue Jun 09 09:05:25 MDT 2026
+# SharedData Build 6501428 on Mon Jun 08 17:34:18 MDT 2026
+# Start of session at: Mon Oct 19 14:01:33 2026
+# Process ID         : 12216
+# Current directory  : C:/Users/djawl/AppData/Roaming/Xilinx/Vivado
+# Command line       : vivado.exe -gui_launcher_event rodinguilauncherevent47080
+# Log file           : C:/Users/djawl/AppData/Roaming/Xilinx/Vivado/vivado.log
+# Journal file       : C:/Users/djawl/AppData/Roaming/Xilinx/Vivado\vivado.jou
+# Running On         : SangHyeok
+# Platform           : Windows 11
+# Operating System   : 26200
+# Processor Detail   : Intel(R) Core(TM) 3 100U
+# CPU Frequency      : 2496 MHz
+# CPU Physical cores : 6
+# CPU Logical cores  : 8
+# Host memory        : 8258 MB
+# Swap memory        : 21103 MB
+# Total Virtual      : 29361 MB
+# Available Virtual  : 14259 MB
+#-----------------------------------------------------------
+start_gui
+create_project piano C:/Users/djawl/lab05_STM32-FPGA/fpga/piano/vivado -part xc7s75fgga484-1
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/AMDDesignTools/2026.1/Vivado/data/ip'.
+create_project: Time (s): cpu = 00:00:08 ; elapsed = 00:00:05 . Memory (MB): peak = 1674.625 ; gain = 20.371
+add_files -norecurse {C:/Users/djawl/lab05_STM32-FPGA/fpga/piano/src/square_tone.v C:/Users/djawl/lab05_STM32-FPGA/fpga/piano/src/note_select.v C:/Users/djawl/lab05_STM32-FPGA/fpga/piano/src/piano.v}
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+add_files -fileset constrs_1 -norecurse C:/Users/djawl/lab05_STM32-FPGA/fpga/piano/constraints/pins.xdc
+set_property SOURCE_SET sources_1 [get_filesets sim_1]
+add_files -fileset sim_1 -norecurse C:/Users/djawl/lab05_STM32-FPGA/fpga/piano/sim/piano_tb.sv
+update_compile_order -fileset sim_1
+update_compile_order -fileset sim_1
+launch_simulation
+Command: launch_simulation  -mode behavioral
+INFO: [Vivado 12-25911] Executing simulation for 'XSim' simulator
+INFO: [Vivado 12-28535] Process started - Mon Oct 19 14:05:18 2026
+
+INFO: [Vivado 12-12493] Simulation top is 'tb'
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/djawl/lab05_STM32-FPGA/fpga/piano/vivado/piano.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from 'C:/AMDDesignTools/2026.1/Vivado/tps/boost_1_72_0'
+INFO: [SIM-utils-54] Inspecting design source files for 'tb' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/djawl/lab05_STM32-FPGA/fpga/piano/vivado/piano.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -L uvm -prj tb_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/djawl/lab05_STM32-FPGA/fpga/piano/src/note_select.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module note_select
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/djawl/lab05_STM32-FPGA/fpga/piano/src/piano.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module piano
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/djawl/lab05_STM32-FPGA/fpga/piano/src/square_tone.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module square_tone
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/djawl/lab05_STM32-FPGA/fpga/piano/sim/piano_tb.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tb
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/djawl/lab05_STM32-FPGA/fpga/piano/vivado/piano.sim/sim_1/behav/xsim/glbl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module glbl
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/djawl/lab05_STM32-FPGA/fpga/piano/vivado/piano.sim/sim_1/behav/xsim'
+"xelab --incr --debug typical --relax --mt 2 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_behav xil_defaultlib.tb xil_defaultlib.glbl -log elaborate.log"
+Vivado Simulator v2026.1
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: C:/AMDDesignTools/2026.1/Vivado/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_behav xil_defaultlib.tb xil_defaultlib.glbl -log elaborate.log 
+INFO: [XSIM 43-3493] Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.note_select
+Compiling module xil_defaultlib.square_tone(CLK_HZ=10000)
+Compiling module xil_defaultlib.piano(CLK_HZ=10000)
+Compiling module xil_defaultlib.tb
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot tb_behav
+run_program: Time (s): cpu = 00:00:00 ; elapsed = 00:00:06 . Memory (MB): peak = 1717.371 ; gain = 0.000
+INFO: [USF-XSim-69] 'elaborate' step finished in '6' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Users/djawl/lab05_STM32-FPGA/fpga/piano/vivado/piano.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "tb_behav -key {Behavioral:sim_1:Functional:tb} -tclbatch {tb.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Time resolution is 1 ps
+source tb.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'tb_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:04 ; elapsed = 00:00:11 . Memory (MB): peak = 1728.773 ; gain = 11.402
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_runs synth_1 -jobs 4
+[Mon Oct 19 14:06:42 2026] Launched synth_1...
+Run output will be captured here: C:/Users/djawl/lab05_STM32-FPGA/fpga/piano/vivado/piano.runs/synth_1/runme.log
+launch_runs impl_1 -jobs 4
+[Mon Oct 19 14:08:35 2026] Launched impl_1...
+Run output will be captured here: C:/Users/djawl/lab05_STM32-FPGA/fpga/piano/vivado/piano.runs/impl_1/runme.log
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+[Mon Oct 19 14:09:37 2026] Launched impl_1...
+Run output will be captured here: C:/Users/djawl/lab05_STM32-FPGA/fpga/piano/vivado/piano.runs/impl_1/runme.log
+open_hw_manager
+connect_hw_server -allow_non_jtag
+INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121
+INFO: [Labtools 27-2222] Launching hw_server...
+INFO: [Labtools 27-2221] Launch Output:
+
+****** Xilinx hw_server v2026.1
+  **** Build date : May 29 2026 at 14:55:19
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+
+
+INFO: [Labtools 27-3415] Connecting to cs_server url TCP:localhost:0
+INFO: [Labtools 27-3417] Launching cs_server...
+INFO: [Labtools 27-2221] Launch Output:
+
+****** Xilinx cs_server v2026.1
+  **** Build Info : #60 | 2026-06-15 19:15 UTC | a9691a9
+    ** Copyright 2017-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+
+
+
+connect_hw_server: Time (s): cpu = 00:00:01 ; elapsed = 00:00:07 . Memory (MB): peak = 1743.938 ; gain = 2.125
+disconnect_hw_server localhost:3121
+connect_hw_server -allow_non_jtag
+INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121
+INFO: [Labtools 27-3415] Connecting to cs_server url TCP:localhost:0
+INFO: [Labtools 27-3417] Launching cs_server...
+INFO: [Labtools 27-2221] Launch Output:
+
+****** Xilinx cs_server v2026.1
+  **** Build Info : #60 | 2026-06-15 19:15 UTC | a9691a9
+    ** Copyright 2017-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+
+
+
+connect_hw_server: Time (s): cpu = 00:00:02 ; elapsed = 00:00:10 . Memory (MB): peak = 1743.938 ; gain = 0.000
+open_hw_target
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Xilinx/2224e50013e181
+set_property PROGRAM.FILE {C:/Users/djawl/lab05_STM32-FPGA/fpga/piano/vivado/piano.runs/impl_1/piano.bit} [get_hw_devices xc7s75_0]
+current_hw_device [get_hw_devices xc7s75_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7s75_0] 0]
+INFO: [Labtools 27-1434] Device xc7s75 (JTAG device index = 0) is programmed with a design that has no supported soft debug core(s) in it.
+set_property PROBES.FILE {} [get_hw_devices xc7s75_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7s75_0]
+set_property PROGRAM.FILE {C:/Users/djawl/lab05_STM32-FPGA/fpga/piano/vivado/piano.runs/impl_1/piano.bit} [get_hw_devices xc7s75_0]
+program_hw_devices [get_hw_devices xc7s75_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+program_hw_devices: Time (s): cpu = 00:00:11 ; elapsed = 00:00:10 . Memory (MB): peak = 1818.938 ; gain = 0.000
+refresh_hw_device [lindex [get_hw_devices xc7s75_0] 0]
+INFO: [Labtools 27-1434] Device xc7s75 (JTAG device index = 0) is programmed with a design that has no supported soft debug core(s) in it.
+open_run impl_1
+INFO: [Device 21-403] Loading part xc7s75fgga484-1
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.004 . Memory (MB): peak = 2002.441 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 187 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2026.1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Read ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.009 . Memory (MB): peak = 2089.527 ; gain = 0.254
+INFO: [Timing 38-478] Restoring timing data from binary archive.
+INFO: [Timing 38-479] Binary timing data restore complete.
+INFO: [Project 1-856] Restoring constraints from binary archive.
+INFO: [Project 1-853] Binary constraint restore complete.
+INFO: [Designutils 20-5722] Start Reading Physical Databases.
+Reading placement.
+Read Netlist Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 2607.109 ; gain = 0.000
+Reading placer database...
+Read Device Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.005 . Memory (MB): peak = 2607.109 ; gain = 0.000
+Read PlaceDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 2607.109 ; gain = 0.000
+Read placeStorage: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.021 . Memory (MB): peak = 2619.184 ; gain = 12.074
+Read PulsedLatchDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2619.184 ; gain = 0.000
+Reading routing.
+Read RouteStorage: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.023 . Memory (MB): peak = 2619.184 ; gain = 0.000
+Read Physdb Files: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.080 . Memory (MB): peak = 2619.184 ; gain = 12.074
+Restored from archive | CPU: 0.000000 secs | Memory: 0.000000 MB |
+Finished XDEF File Restore: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.083 . Memory (MB): peak = 2619.184 ; gain = 12.074
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 2619.184 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+open_run: Time (s): cpu = 00:00:15 ; elapsed = 00:00:21 . Memory (MB): peak = 2961.453 ; gain = 1138.945
+close_project
+create_project traffic C:/Users/djawl/lab05_STM32-FPGA/fpga/traffic/vivado -part xc7s75fgga484-1
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/AMDDesignTools/2026.1/Vivado/data/ip'.
+add_files -norecurse {C:/Users/djawl/lab05_STM32-FPGA/fpga/traffic/src/traffic_lights.v C:/Users/djawl/lab05_STM32-FPGA/fpga/traffic/src/traffic.v C:/Users/djawl/lab05_STM32-FPGA/fpga/traffic/src/traffic_sequence.v C:/Users/djawl/lab05_STM32-FPGA/fpga/traffic/src/second_tick.v}
+update_compile_order -fileset sources_1
+add_files -fileset constrs_1 -norecurse C:/Users/djawl/lab05_STM32-FPGA/fpga/traffic/constraints/pins.xdc
+update_compile_order -fileset sources_1
+set_property SOURCE_SET sources_1 [get_filesets sim_1]
+add_files -fileset sim_1 -norecurse C:/Users/djawl/lab05_STM32-FPGA/fpga/traffic/sim/traffic_tb.sv
+update_compile_order -fileset sim_1
+launch_simulation
+Command: launch_simulation  -mode behavioral
+INFO: [Vivado 12-25911] Executing simulation for 'XSim' simulator
+INFO: [Vivado 12-28535] Process started - Mon Oct 19 14:21:02 2026
+
+INFO: [Vivado 12-12493] Simulation top is 'traffic'
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/djawl/lab05_STM32-FPGA/fpga/traffic/vivado/traffic.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from 'C:/AMDDesignTools/2026.1/Vivado/tps/boost_1_72_0'
+INFO: [SIM-utils-54] Inspecting design source files for 'traffic' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/djawl/lab05_STM32-FPGA/fpga/traffic/vivado/traffic.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj traffic_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/djawl/lab05_STM32-FPGA/fpga/traffic/src/second_tick.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module second_tick
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/djawl/lab05_STM32-FPGA/fpga/traffic/src/traffic_lights.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module traffic_lights
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/djawl/lab05_STM32-FPGA/fpga/traffic/src/traffic_sequence.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module traffic_sequence
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/djawl/lab05_STM32-FPGA/fpga/traffic/src/traffic.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module traffic
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/djawl/lab05_STM32-FPGA/fpga/traffic/vivado/traffic.sim/sim_1/behav/xsim/glbl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module glbl
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/djawl/lab05_STM32-FPGA/fpga/traffic/vivado/traffic.sim/sim_1/behav/xsim'
+"xelab --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot traffic_behav xil_defaultlib.traffic xil_defaultlib.glbl -log elaborate.log"
+Vivado Simulator v2026.1
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: C:/AMDDesignTools/2026.1/Vivado/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot traffic_behav xil_defaultlib.traffic xil_defaultlib.glbl -log elaborate.log 
+INFO: [XSIM 43-3493] Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.second_tick
+Compiling module xil_defaultlib.traffic_sequence
+Compiling module xil_defaultlib.traffic_lights
+Compiling module xil_defaultlib.traffic
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot traffic_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '4' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Users/djawl/lab05_STM32-FPGA/fpga/traffic/vivado/traffic.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "traffic_behav -key {Behavioral:sim_1:Functional:traffic} -tclbatch {traffic.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Time resolution is 1 ps
+source traffic.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'traffic_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+launch_simulation: Time (s): cpu = 00:00:01 ; elapsed = 00:00:08 . Memory (MB): peak = 4112.062 ; gain = 0.000
+update_compile_order -fileset sim_1
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+Command: launch_simulation  -mode behavioral
+INFO: [Vivado 12-25911] Executing simulation for 'XSim' simulator
+INFO: [Vivado 12-28535] Process started - Mon Oct 19 14:21:42 2026
+
+INFO: [Vivado 12-12493] Simulation top is 'tb'
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/djawl/lab05_STM32-FPGA/fpga/traffic/vivado/traffic.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from 'C:/AMDDesignTools/2026.1/Vivado/tps/boost_1_72_0'
+INFO: [SIM-utils-54] Inspecting design source files for 'tb' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/djawl/lab05_STM32-FPGA/fpga/traffic/vivado/traffic.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -L uvm -prj tb_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/djawl/lab05_STM32-FPGA/fpga/traffic/src/second_tick.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module second_tick
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/djawl/lab05_STM32-FPGA/fpga/traffic/src/traffic.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module traffic
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/djawl/lab05_STM32-FPGA/fpga/traffic/src/traffic_lights.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module traffic_lights
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/djawl/lab05_STM32-FPGA/fpga/traffic/src/traffic_sequence.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module traffic_sequence
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/djawl/lab05_STM32-FPGA/fpga/traffic/sim/traffic_tb.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tb
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/djawl/lab05_STM32-FPGA/fpga/traffic/vivado/traffic.sim/sim_1/behav/xsim/glbl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module glbl
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/djawl/lab05_STM32-FPGA/fpga/traffic/vivado/traffic.sim/sim_1/behav/xsim'
+"xelab --incr --debug typical --relax --mt 2 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_behav xil_defaultlib.tb xil_defaultlib.glbl -log elaborate.log"
+Vivado Simulator v2026.1
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: C:/AMDDesignTools/2026.1/Vivado/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_behav xil_defaultlib.tb xil_defaultlib.glbl -log elaborate.log 
+INFO: [XSIM 43-3493] Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.second_tick(CLK_HZ=4)
+Compiling module xil_defaultlib.traffic_sequence
+Compiling module xil_defaultlib.traffic_lights
+Compiling module xil_defaultlib.traffic(CLK_HZ=4)
+Compiling module xil_defaultlib.tb
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot tb_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '1' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Users/djawl/lab05_STM32-FPGA/fpga/traffic/vivado/traffic.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "tb_behav -key {Behavioral:sim_1:Functional:tb} -tclbatch {tb.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Time resolution is 1 ps
+source tb.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'tb_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+run all
+PASS traffic: full cycle, pedestrian blink, flicker, reset
+$finish called at time : 2186 ns : File "C:/Users/djawl/lab05_STM32-FPGA/fpga/traffic/sim/traffic_tb.sv" Line 47
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_runs synth_1 -jobs 4
+[Mon Oct 19 14:26:45 2026] Launched synth_1...
+Run output will be captured here: C:/Users/djawl/lab05_STM32-FPGA/fpga/traffic/vivado/traffic.runs/synth_1/runme.log
+launch_runs impl_1 -jobs 4
+[Mon Oct 19 14:28:31 2026] Launched impl_1...
+Run output will be captured here: C:/Users/djawl/lab05_STM32-FPGA/fpga/traffic/vivado/traffic.runs/impl_1/runme.log
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+[Mon Oct 19 14:30:11 2026] Launched impl_1...
+Run output will be captured here: C:/Users/djawl/lab05_STM32-FPGA/fpga/traffic/vivado/traffic.runs/impl_1/runme.log
+open_hw_manager
+connect_hw_server -allow_non_jtag
+INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121
+INFO: [Labtools 27-2222] Launching hw_server...
+INFO: [Labtools 27-2221] Launch Output:
+
+****** Xilinx hw_server v2026.1
+  **** Build date : May 29 2026 at 14:55:19
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+
+
+INFO: [Labtools 27-3415] Connecting to cs_server url TCP:localhost:0
+INFO: [Labtools 27-3417] Launching cs_server...
+INFO: [Labtools 27-2221] Launch Output:
+
+****** Xilinx cs_server v2026.1
+  **** Build Info : #60 | 2026-06-15 19:15 UTC | a9691a9
+    ** Copyright 2017-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+
+
+
+connect_hw_server: Time (s): cpu = 00:00:01 ; elapsed = 00:00:07 . Memory (MB): peak = 4112.062 ; gain = 0.000
+open_hw_target
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Xilinx/2224e50013e181
+set_property PROGRAM.FILE {C:/Users/djawl/lab05_STM32-FPGA/fpga/traffic/vivado/traffic.runs/impl_1/traffic.bit} [get_hw_devices xc7s75_0]
+current_hw_device [get_hw_devices xc7s75_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7s75_0] 0]
+INFO: [Labtools 27-1434] Device xc7s75 (JTAG device index = 0) is programmed with a design that has no supported soft debug core(s) in it.
+set_property PROBES.FILE {} [get_hw_devices xc7s75_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7s75_0]
+set_property PROGRAM.FILE {C:/Users/djawl/lab05_STM32-FPGA/fpga/traffic/vivado/traffic.runs/impl_1/traffic.bit} [get_hw_devices xc7s75_0]
+program_hw_devices [get_hw_devices xc7s75_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+program_hw_devices: Time (s): cpu = 00:00:11 ; elapsed = 00:00:10 . Memory (MB): peak = 4112.062 ; gain = 0.000
+refresh_hw_device [lindex [get_hw_devices xc7s75_0] 0]
+INFO: [Labtools 27-1434] Device xc7s75 (JTAG device index = 0) is programmed with a design that has no supported soft debug core(s) in it.
+open_run impl_1
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 4112.062 ; gain = 0.000
+INFO: [Netlist 29-17] Analyzing 7 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2026.1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Read ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.003 . Memory (MB): peak = 4112.062 ; gain = 0.000
+INFO: [Timing 38-478] Restoring timing data from binary archive.
+INFO: [Timing 38-479] Binary timing data restore complete.
+INFO: [Project 1-856] Restoring constraints from binary archive.
+INFO: [Project 1-853] Binary constraint restore complete.
+INFO: [Designutils 20-5722] Start Reading Physical Databases.
+Reading placement.
+Read Netlist Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 4112.062 ; gain = 0.000
+Reading placer database...
+Read Device Cache: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.018 . Memory (MB): peak = 4112.062 ; gain = 0.000
+Read PlaceDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.081 . Memory (MB): peak = 4112.062 ; gain = 0.000
+Read placeStorage: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.364 . Memory (MB): peak = 4112.062 ; gain = 0.000
+Read PulsedLatchDB: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 4112.062 ; gain = 0.000
+Reading routing.
+Read RouteStorage: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.039 . Memory (MB): peak = 4112.062 ; gain = 0.000
+Read Physdb Files: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.719 . Memory (MB): peak = 4112.062 ; gain = 0.000
+Restored from archive | CPU: 0.000000 secs | Memory: 0.000000 MB |
+Finished XDEF File Restore: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.777 . Memory (MB): peak = 4112.062 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 4112.062 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+open_run: Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 4112.062 ; gain = 0.000
+close_project
+create_project ADC C:/Users/djawl/lab05_STM32-FPGA/fpga/adc/vivado -part xc7s75fgga484-1
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/AMDDesignTools/2026.1/Vivado/data/ip'.
+add_files -norecurse {C:/Users/djawl/lab05_STM32-FPGA/fpga/adc/src/serial_frame16.v C:/Users/djawl/lab05_STM32-FPGA/fpga/adc/src/adc.v C:/Users/djawl/lab05_STM32-FPGA/fpga/adc/src/adc_board.v C:/Users/djawl/lab05_STM32-FPGA/fpga/adc/src/adc_command.v}
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+add_files -fileset constrs_1 -norecurse C:/Users/djawl/lab05_STM32-FPGA/fpga/adc/constraints/pins.xdc
+set_property SOURCE_SET sources_1 [get_filesets sim_1]
+add_files -fileset sim_1 -norecurse C:/Users/djawl/lab05_STM32-FPGA/fpga/adc/sim/adc_tb.sv
+launch_simulation
+Command: launch_simulation  -mode behavioral
+INFO: [Vivado 12-25911] Executing simulation for 'XSim' simulator
+INFO: [Vivado 12-28535] Process started - Mon Oct 19 14:38:42 2026
+
+INFO: [Vivado 12-12493] Simulation top is 'adc_board'
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/djawl/lab05_STM32-FPGA/fpga/adc/vivado/ADC.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from 'C:/AMDDesignTools/2026.1/Vivado/tps/boost_1_72_0'
+INFO: [SIM-utils-54] Inspecting design source files for 'adc_board' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/djawl/lab05_STM32-FPGA/fpga/adc/vivado/ADC.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj adc_board_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/djawl/lab05_STM32-FPGA/fpga/adc/src/adc.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module adc
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/djawl/lab05_STM32-FPGA/fpga/adc/src/adc_command.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module adc_command
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/djawl/lab05_STM32-FPGA/fpga/adc/src/serial_frame16.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module serial_frame16
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/djawl/lab05_STM32-FPGA/fpga/adc/src/adc_board.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module adc_board
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/djawl/lab05_STM32-FPGA/fpga/adc/vivado/ADC.sim/sim_1/behav/xsim/glbl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module glbl
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/djawl/lab05_STM32-FPGA/fpga/adc/vivado/ADC.sim/sim_1/behav/xsim'
+"xelab --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot adc_board_behav xil_defaultlib.adc_board xil_defaultlib.glbl -log elaborate.log"
+Vivado Simulator v2026.1
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: C:/AMDDesignTools/2026.1/Vivado/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot adc_board_behav xil_defaultlib.adc_board xil_defaultlib.glbl -log elaborate.log 
+INFO: [XSIM 43-3493] Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.adc_command
+Compiling module xil_defaultlib.serial_frame16
+Compiling module xil_defaultlib.adc
+Compiling module xil_defaultlib.adc_board
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot adc_board_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '1' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Users/djawl/lab05_STM32-FPGA/fpga/adc/vivado/ADC.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "adc_board_behav -key {Behavioral:sim_1:Functional:adc_board} -tclbatch {adc_board.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Time resolution is 1 ps
+source adc_board.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'adc_board_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+update_compile_order -fileset sim_1
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+launch_simulation
+Command: launch_simulation  -mode behavioral
+INFO: [Vivado 12-25911] Executing simulation for 'XSim' simulator
+INFO: [Vivado 12-28535] Process started - Mon Oct 19 14:38:55 2026
+
+INFO: [Vivado 12-12493] Simulation top is 'adc_board'
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/djawl/lab05_STM32-FPGA/fpga/adc/vivado/ADC.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from 'C:/AMDDesignTools/2026.1/Vivado/tps/boost_1_72_0'
+INFO: [SIM-utils-54] Inspecting design source files for 'adc_board' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/djawl/lab05_STM32-FPGA/fpga/adc/vivado/ADC.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -prj adc_board_vlog.prj"
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/djawl/lab05_STM32-FPGA/fpga/adc/vivado/ADC.sim/sim_1/behav/xsim'
+"xelab --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot adc_board_behav xil_defaultlib.adc_board xil_defaultlib.glbl -log elaborate.log"
+Vivado Simulator v2026.1
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: C:/AMDDesignTools/2026.1/Vivado/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot adc_board_behav xil_defaultlib.adc_board xil_defaultlib.glbl -log elaborate.log 
+INFO: [XSIM 43-3493] Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+INFO: [XSIM 43-4323] No Change in HDL. Linking previously generated obj files to create kernel
+INFO: [USF-XSim-69] 'elaborate' step finished in '1' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Users/djawl/lab05_STM32-FPGA/fpga/adc/vivado/ADC.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "adc_board_behav -key {Behavioral:sim_1:Functional:adc_board} -tclbatch {adc_board.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Time resolution is 1 ps
+source adc_board.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'adc_board_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+set_property top tb [get_filesets sim_1]
+set_property top_lib xil_defaultlib [get_filesets sim_1]
+launch_simulation
+Command: launch_simulation  -mode behavioral
+INFO: [Vivado 12-25911] Executing simulation for 'XSim' simulator
+INFO: [Vivado 12-28535] Process started - Mon Oct 19 14:39:17 2026
+
+INFO: [Vivado 12-12493] Simulation top is 'tb'
+INFO: [Vivado 12-5682] Launching behavioral simulation in 'C:/Users/djawl/lab05_STM32-FPGA/fpga/adc/vivado/ADC.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-72] Using boost library from 'C:/AMDDesignTools/2026.1/Vivado/tps/boost_1_72_0'
+INFO: [SIM-utils-54] Inspecting design source files for 'tb' in fileset 'sim_1'...
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in 'C:/Users/djawl/lab05_STM32-FPGA/fpga/adc/vivado/ADC.sim/sim_1/behav/xsim'
+"xvlog --incr --relax -L uvm -prj tb_vlog.prj"
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/djawl/lab05_STM32-FPGA/fpga/adc/src/adc.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module adc
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/djawl/lab05_STM32-FPGA/fpga/adc/src/adc_command.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module adc_command
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/djawl/lab05_STM32-FPGA/fpga/adc/src/serial_frame16.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module serial_frame16
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "C:/Users/djawl/lab05_STM32-FPGA/fpga/adc/sim/adc_tb.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module tb
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/djawl/lab05_STM32-FPGA/fpga/adc/vivado/ADC.sim/sim_1/behav/xsim/glbl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module glbl
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in 'C:/Users/djawl/lab05_STM32-FPGA/fpga/adc/vivado/ADC.sim/sim_1/behav/xsim'
+"xelab --incr --debug typical --relax --mt 2 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_behav xil_defaultlib.tb xil_defaultlib.glbl -log elaborate.log"
+Vivado Simulator v2026.1
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: C:/AMDDesignTools/2026.1/Vivado/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_behav xil_defaultlib.tb xil_defaultlib.glbl -log elaborate.log 
+INFO: [XSIM 43-3493] Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.adc_command
+Compiling module xil_defaultlib.serial_frame16(HALF_CYCLES=2)
+Compiling module xil_defaultlib.adc(HALF_CYCLES=2)
+Compiling module xil_defaultlib.tb
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot tb_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '1' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in 'C:/Users/djawl/lab05_STM32-FPGA/fpga/adc/vivado/ADC.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "tb_behav -key {Behavioral:sim_1:Functional:tb} -tclbatch {tb.tcl} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Time resolution is 1 ps
+source tb.tcl
+# set curr_wave [current_wave_config]
+# if { [string length $curr_wave] == 0 } {
+#   if { [llength [get_objects]] > 0} {
+#     add_wave /
+#     set_property needs_save false [current_wave_config]
+#   } else {
+#      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console."
+#   }
+# }
+# run 1000ns
+INFO: [USF-XSim-96] XSim completed. Design snapshot 'tb_behav' loaded.
+INFO: [USF-XSim-97] XSim simulation ran for 1000ns
+update_compile_order -fileset sim_1
+run all
+PASS ADC: 3 serial frames, command bits, sample, reset
+$finish called at time : 2016 ns : File "C:/Users/djawl/lab05_STM32-FPGA/fpga/adc/sim/adc_tb.sv" Line 45
+launch_runs synth_1 -jobs 4
+[Mon Oct 19 14:40:00 2026] Launched synth_1...
+Run output will be captured here: C:/Users/djawl/lab05_STM32-FPGA/fpga/adc/vivado/ADC.runs/synth_1/runme.log
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+reset_run synth_1
+WARNING: [Vivado 12-1017] Problems encountered:
+1. Failed to delete one or more files in run directory C:/Users/djawl/lab05_STM32-FPGA/fpga/adc/vivado/ADC.runs/synth_1
+
+launch_runs synth_1 -jobs 4
+[Mon Oct 19 14:40:31 2026] Launched synth_1...
+Run output will be captured here: C:/Users/djawl/lab05_STM32-FPGA/fpga/adc/vivado/ADC.runs/synth_1/runme.log
+launch_runs impl_1 -jobs 4
+[Mon Oct 19 14:41:21 2026] Launched impl_1...
+Run output will be captured here: C:/Users/djawl/lab05_STM32-FPGA/fpga/adc/vivado/ADC.runs/impl_1/runme.log
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+[Mon Oct 19 14:42:33 2026] Launched impl_1...
+Run output will be captured here: C:/Users/djawl/lab05_STM32-FPGA/fpga/adc/vivado/ADC.runs/impl_1/runme.log
+open_hw_manager
+connect_hw_server -allow_non_jtag
+INFO: [Labtools 27-2285] Connecting to hw_server url TCP:localhost:3121
+INFO: [Labtools 27-2222] Launching hw_server...
+INFO: [Labtools 27-2221] Launch Output:
+
+****** Xilinx hw_server v2026.1
+  **** Build date : May 29 2026 at 14:55:19
+    ** Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+
+
+INFO: [Labtools 27-3415] Connecting to cs_server url TCP:localhost:0
+INFO: [Labtools 27-3417] Launching cs_server...
+INFO: [Labtools 27-2221] Launch Output:
+
+****** Xilinx cs_server v2026.1
+  **** Build Info : #60 | 2026-06-15 19:15 UTC | a9691a9
+    ** Copyright 2017-2022 Xilinx, Inc. All Rights Reserved.
+    ** Copyright 2022-2026 Advanced Micro Devices, Inc. All Rights Reserved.
+
+
+
+connect_hw_server: Time (s): cpu = 00:00:01 ; elapsed = 00:00:06 . Memory (MB): peak = 4112.062 ; gain = 0.000
+open_hw_target
+INFO: [Labtoolstcl 44-466] Opening hw_target localhost:3121/xilinx_tcf/Xilinx/2224e50013e181
+set_property PROGRAM.FILE {C:/Users/djawl/lab05_STM32-FPGA/fpga/adc/vivado/ADC.runs/impl_1/adc_board.bit} [get_hw_devices xc7s75_0]
+current_hw_device [get_hw_devices xc7s75_0]
+refresh_hw_device -update_hw_probes false [lindex [get_hw_devices xc7s75_0] 0]
+INFO: [Labtools 27-1434] Device xc7s75 (JTAG device index = 0) is programmed with a design that has no supported soft debug core(s) in it.
+set_property PROBES.FILE {} [get_hw_devices xc7s75_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7s75_0]
+set_property PROGRAM.FILE {C:/Users/djawl/lab05_STM32-FPGA/fpga/adc/vivado/ADC.runs/impl_1/adc_board.bit} [get_hw_devices xc7s75_0]
+program_hw_devices [get_hw_devices xc7s75_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+program_hw_devices: Time (s): cpu = 00:00:10 ; elapsed = 00:00:10 . Memory (MB): peak = 4112.062 ; gain = 0.000
+refresh_hw_device [lindex [get_hw_devices xc7s75_0] 0]
+INFO: [Labtools 27-1434] Device xc7s75 (JTAG device index = 0) is programmed with a design that has no supported soft debug core(s) in it.
+add_files -norecurse {C:/Users/djawl/lab05_STM32-FPGA/fpga/adc/src/serial_frame16.v C:/Users/djawl/lab05_STM32-FPGA/fpga/adc/src/adc.v C:/Users/djawl/lab05_STM32-FPGA/fpga/adc/src/adc_board.v C:/Users/djawl/lab05_STM32-FPGA/fpga/adc/src/adc_command.v}
+WARNING: [filemgmt 56-12] File 'C:/Users/djawl/lab05_STM32-FPGA/fpga/adc/src/serial_frame16.v' cannot be added to the project because it already exists in the project, skipping this file
+WARNING: [filemgmt 56-12] File 'C:/Users/djawl/lab05_STM32-FPGA/fpga/adc/src/adc.v' cannot be added to the project because it already exists in the project, skipping this file
+WARNING: [filemgmt 56-12] File 'C:/Users/djawl/lab05_STM32-FPGA/fpga/adc/src/adc_board.v' cannot be added to the project because it already exists in the project, skipping this file
+WARNING: [filemgmt 56-12] File 'C:/Users/djawl/lab05_STM32-FPGA/fpga/adc/src/adc_command.v' cannot be added to the project because it already exists in the project, skipping this file
+set_property SOURCE_SET sources_1 [get_filesets sim_1]
+add_files -fileset sim_1 -norecurse C:/Users/djawl/lab05_STM32-FPGA/fpga/adc/sim/adc_tb.sv
+WARNING: [filemgmt 56-12] File 'C:/Users/djawl/lab05_STM32-FPGA/fpga/adc/sim/adc_tb.sv' cannot be added to the project because it already exists in the project, skipping this file
+reset_run synth_1
+launch_runs synth_1 -jobs 4
+[Mon Oct 19 14:54:31 2026] Launched synth_1...
+Run output will be captured here: C:/Users/djawl/lab05_STM32-FPGA/fpga/adc/vivado/ADC.runs/synth_1/runme.log
+launch_runs impl_1 -jobs 4
+[Mon Oct 19 14:55:32 2026] Launched impl_1...
+Run output will be captured here: C:/Users/djawl/lab05_STM32-FPGA/fpga/adc/vivado/ADC.runs/impl_1/runme.log
+launch_runs impl_1 -to_step write_bitstream -jobs 4
+[Mon Oct 19 14:56:38 2026] Launched impl_1...
+Run output will be captured here: C:/Users/djawl/lab05_STM32-FPGA/fpga/adc/vivado/ADC.runs/impl_1/runme.log
+set_property PROBES.FILE {} [get_hw_devices xc7s75_0]
+set_property FULL_PROBES.FILE {} [get_hw_devices xc7s75_0]
+set_property PROGRAM.FILE {C:/Users/djawl/lab05_STM32-FPGA/fpga/adc/vivado/ADC.runs/impl_1/adc_board.bit} [get_hw_devices xc7s75_0]
+program_hw_devices [get_hw_devices xc7s75_0]
+INFO: [Labtools 27-3164] End of startup status: HIGH
+program_hw_devices: Time (s): cpu = 00:00:11 ; elapsed = 00:00:11 . Memory (MB): peak = 4112.062 ; gain = 0.000
+refresh_hw_device [lindex [get_hw_devices xc7s75_0] 0]
+INFO: [Labtools 27-1434] Device xc7s75 (JTAG device index = 0) is programmed with a design that has no supported soft debug core(s) in it.
+ERROR: [Labtoolstcl 44-513] HW Target shutdown. Closing target: localhost:3121/xilinx_tcf/Xilinx/2224e50013e181

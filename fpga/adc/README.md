@@ -15,3 +15,7 @@ SCLK = 50 MHz / (2 × HALF_CYCLES) = 1 MHz (HALF_CYCLES=25).
 보드: 채널 0 = 가변저항(VR), 1 = 조도센서(CdS). DIP_SW6~8을 000/001로 두고 손잡이·빛을 바꿔 LED 값 변화를 본다.
 채널을 바꾼 직후 첫 결과는 이전 채널 값일 수 있다(장치 설명서 확인).
 사전 검증: `PASS ADC: 3 serial frames, command bits, sample, reset`. 명령 상위 3비트를 100으로 바꾸면 `FATAL ... ADC command`.
+
+## 실험 후 (2026-10-19)
+
+시연 영상과 실측은 `evidence/post/`, `reports/post.md`.
